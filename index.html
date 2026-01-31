@@ -1,52 +1,193 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Günaydın!</title>
-    <style>
-        body {
-            background-color: #fff0f3; /* Hafif pembe arka plan */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .container {
-            text-align: center;
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #ff4d6d; /* Tatlı bir kırmızı/pembe */
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        p {
-            color: #590d22;
-            font-size: 1.2rem;
-        }
-        .heart {
-            color: #ff4d6d;
-            font-size: 3rem;
-            animation: pulse 1.5s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>AlgoWhale – Yakında</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg1: #050b1e;
+      --bg2: #0b1a3a;
+      --primary: #7c7cff;
+      --secondary: #3fd1ff;
+      --text: #e6e9ff;
+      --muted: #9aa3c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      background: radial-gradient(1200px 600px at 70% 20%, #1a2b6d33, transparent),
+                  linear-gradient(135deg, var(--bg1), var(--bg2));
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      max-width: 1100px;
+      padding: 64px 32px;
+      text-align: center;
+    }
+    .badge {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: #050b1e;
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: clamp(36px, 5vw, 64px);
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    h1 span {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p.lead {
+      max-width: 720px;
+      margin: 0 auto 40px;
+      font-size: 18px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-bottom: 56px;
+    }
+    .feature {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 24px;
+      backdrop-filter: blur(6px);
+    }
+    .feature h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+    .feature p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .time-box {
+      min-width: 100px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 16px 12px;
+    }
+    .time {
+      font-size: 32px;
+      font-weight: 700;
+    }
+    .label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .footer-text {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 24px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="heart">❤️</div>
-        <h1>Günaydın bebi</h1>
-        <p>seni seviyorum.</p>
+  <div class="container">
+    <div class="badge">🚀 Mart Başında Yayında</div>
+
+    <h1>
+      Kripto Borsalarındaki <span>Büyük Para Hareketlerini</span><br />
+      Canlı Olarak Takip Et
+    </h1>
+
+    <p class="lead">
+      AlgoWhale, 5+ kripto para borsasına giren ve çıkan büyük miktardaki paraları
+      <strong>anlık olarak</strong> izler. Balinaların hamlelerini kaçırma,
+      piyasayı onlar hareket etmeden önce gör.
+    </p>
+
+    <div class="features">
+      <div class="feature">
+        <h3>📡 Gerçek Zamanlı Veri</h3>
+        <p>5+ büyük kripto borsasından gelen para giriş–çıkış verileri anlık olarak yansıtılır.</p>
+      </div>
+      <div class="feature">
+        <h3>🐋 Balina Takibi</h3>
+        <p>Yüksek hacimli transferleri filtrele, piyasayı etkileyen işlemleri önden gör.</p>
+      </div>
+      <div class="feature">
+        <h3>⚡ Canlı Akış</h3>
+        <p>Para girişleri saniyeler içinde ekrana düşer, gecikme olmadan izlersin.</p>
+      </div>
+      <div class="feature">
+        <h3>🧠 Akıllı İçgörüler</h3>
+        <p>Ham veriyi değil, anlamlı hareketleri görmen için optimize edilmiş analizler.</p>
+      </div>
     </div>
+
+    <div class="countdown" id="countdown">
+      <div class="time-box">
+        <div class="time" id="days">--</div>
+        <div class="label">Gün</div>
+      </div>
+      <div class="time-box">
+        <div class="time" id="hours">--</div>
+        <div class="label">Saat</div>
+      </div>
+      <div class="time-box">
+        <div class="time" id="minutes">--</div>
+        <div class="label">Dakika</div>
+      </div>
+      <div class="time-box">
+        <div class="time" id="seconds">--</div>
+        <div class="label">Saniye</div>
+      </div>
+    </div>
+
+    <div class="footer-text">
+      AlgoWhale · Kripto Piyasasında Büyük Oyuncuları Takip Et
+    </div>
+  </div>
+
+  <script>
+    // Mart başı için örnek tarih (1 Mart 2026)
+    const launchDate = new Date('2026-03-01T00:00:00').getTime();
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const distance = launchDate - now;
+
+      if (distance < 0) return;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('days').innerText = days;
+      document.getElementById('hours').innerText = hours;
+      document.getElementById('minutes').innerText = minutes;
+      document.getElementById('seconds').innerText = seconds;
+    };
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
 </body>
 </html>
