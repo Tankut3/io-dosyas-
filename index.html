@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>AlgoWhale — Launching Soon</title>
+  <title>AlgoWhale — Private Beta</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
@@ -13,6 +13,7 @@
       --pink: #ff6fd8;
       --white: #ffffff;
       --text-muted: #9aa3c7;
+      --green: #00ff9d;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -39,11 +40,14 @@
       display: inline-block;
       padding: 8px 18px;
       border-radius: 999px;
-      background: linear-gradient(90deg, var(--blue), var(--pink));
-      color: #050b1e;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--blue);
       font-weight: 600;
-      font-size: 14px;
+      font-size: 13px;
       margin-bottom: 28px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
     h1 {
@@ -79,6 +83,8 @@
       line-height: 1.7;
       color: #e6e9ff;
       font-weight: 500;
+      font-style: italic;
+      opacity: 0.9;
     }
 
     .features {
@@ -94,6 +100,12 @@
       border-radius: 18px;
       padding: 26px;
       backdrop-filter: blur(6px);
+      transition: transform 0.3s ease;
+    }
+    
+    .feature:hover {
+        transform: translateY(-5px);
+        background: rgba(255,255,255,0.08);
     }
 
     .feature h3 {
@@ -107,35 +119,79 @@
       line-height: 1.6;
     }
 
-    .countdown {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
+    /* --- YENİ STATUS ALANI (Countdown Yerine) --- */
+    .status-card {
+        background: rgba(11, 26, 58, 0.6);
+        border: 1px solid rgba(110, 203, 255, 0.2);
+        border-radius: 24px;
+        padding: 40px;
+        max-width: 600px;
+        margin: 0 auto;
+        box-shadow: 0 0 30px rgba(0,0,0,0.3);
     }
 
-    .time-box {
-      min-width: 110px;
-      background: rgba(255,255,255,0.07);
-      border-radius: 16px;
-      padding: 18px 14px;
+    .status-header {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        color: var(--white);
     }
 
-    .time {
-      font-size: 34px;
-      font-weight: 800;
+    .pulse-dot {
+        width: 12px;
+        height: 12px;
+        background-color: var(--green);
+        border-radius: 50%;
+        position: relative;
     }
 
-    .label {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 6px;
+    .pulse-dot::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        border-radius: 50%;
+        background-color: var(--green);
+        animation: pulse 2s infinite;
+        z-index: -1;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); opacity: 0.8; }
+        100% { transform: scale(3); opacity: 0; }
+    }
+
+    .status-text {
+        color: var(--text-muted);
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 30px;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background: linear-gradient(90deg, var(--blue), var(--pink));
+        color: #050b1e;
+        padding: 16px 36px;
+        border-radius: 12px;
+        font-weight: 800;
+        text-decoration: none;
+        font-size: 16px;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .cta-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px rgba(110, 203, 255, 0.4);
     }
 
     .footer {
-      margin-top: 36px;
-      font-size: 14px;
-      color: var(--text-muted);
+      margin-top: 48px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
     }
   </style>
 </head>
@@ -143,7 +199,7 @@
 
   <div class="container">
 
-    <div class="badge">🚀 Launching Early March</div>
+    <div class="badge">🔒 PRIVATE BETA ACCESS</div>
 
     <h1 class="gradient-text">
       Track Major Capital Movements<br />
@@ -179,34 +235,22 @@
       </div>
     </div>
 
-    <div class="countdown">
-      <div class="time-box"><div class="time" id="days">--</div><div class="label">Days</div></div>
-      <div class="time-box"><div class="time" id="hours">--</div><div class="label">Hours</div></div>
-      <div class="time-box"><div class="time" id="minutes">--</div><div class="label">Minutes</div></div>
-      <div class="time-box"><div class="time" id="seconds">--</div><div class="label">Seconds</div></div>
+    <div class="status-card">
+        <div class="status-header">
+            <div class="pulse-dot"></div>
+            System Status: ONLINE
+        </div>
+        <p class="status-text">
+            AlgoWhale V5.0 Engine is currently active.<br>
+            Public access is restricted to maintain execution speed and alpha.<br>
+            Join the waitlist to secure your spot for the next batch.
+        </p>
+        <a href="#" class="cta-button">Request Early Access 👇</a>
     </div>
 
-    <div class="footer">AlgoWhale · See the Market Before It Moves</div>
+    <div class="footer">AlgoWhale © 2026 · See the Market Before It Moves</div>
 
   </div>
-
-  <script>
-    const launchDate = new Date('2026-03-01T00:00:00').getTime();
-
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = launchDate - now;
-      if (distance < 0) return;
-
-      document.getElementById('days').innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-      document.getElementById('hours').innerText = Math.floor((distance / (1000 * 60 * 60)) % 24);
-      document.getElementById('minutes').innerText = Math.floor((distance / (1000 * 60)) % 60);
-      document.getElementById('seconds').innerText = Math.floor((distance / 1000) % 60);
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-  </script>
 
 </body>
 </html>
